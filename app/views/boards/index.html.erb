@@ -1,0 +1,27 @@
+<div class="d-flex align-items-center">
+  <h1>掲示板一覧</h1>
+  <div class="ml-auto boards__linkBox">
+    <%= link_to "新規作成", new_board_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>
+<%= paginate @boards %>
+<% if flash[:notice] %>
+  <div class="alert alert-danger">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<table class="table table-hover boards__table">
+  <tbody>
+    <% @boards.each do |board| %>
+      <tr>
+        <th>></th>
+        <td><%= link_to board.title, board, class: "board__listTitle" %></td>
+        <td><%= board.name %></td>
+        <td><%= board.updated_at.to_s(:datetime_jp) %>更新</td>
+        <td><%= link_to '詳細', board, class: "btn btn-outline-success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @boards %>
