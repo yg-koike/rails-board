@@ -16,13 +16,13 @@ jobs:
           command: sleep 10
       - run:
           name: db create
-          command: docker-compose exec web rails db:create RAILS_ENV=test 
+          command: docker-compose exec app rails db:create RAILS_ENV=test 
       - run:
           name: db migrate
-          command: docker-compose exec web rails db:migrate RAILS_ENV=test
+          command: docker-compose exec app rails db:migrate RAILS_ENV=test
       - run:
           name: test
-          command: docker-compose exec web rspec
+          command: docker-compose exec app rspec
       - run:
           name: docker-compose down
           command: docker-compose down
