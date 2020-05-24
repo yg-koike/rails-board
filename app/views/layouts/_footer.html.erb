@@ -1,6 +1,13 @@
 <div class="footer">
-  <p>&copy;2020掲示板 | 
-    <span><%= link_to '新規登録', "#" %></span>
-    <span><%= link_to 'ログイン', "#" %></span>
+  <p>&copy;掲示板 | 
+    <% if @current_user %>
+      <%= link_to 'マイページ', mypage_path %>
+      <%= link_to 'ログアウト', logout_path, method: :delete %>
+    <% else %>
+      <%= link_to '新規登録', new_user_path %>
+      <%= link_to 'ログイン', login_path %>
+    <% end %>
   </p>
 </div>
+
+
