@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_233417) do
+ActiveRecord::Schema.define(version: 2020_05_24_005423) do
+
+  create_table "board_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "board_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_board_categories_on_board_id"
+    t.index ["category_id"], name: "index_board_categories_on_category_id"
+  end
 
   create_table "boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "title"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,5 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_233417) do
     t.index ["board_id"], name: "index_comments_on_board_id"
   end
 
+  add_foreign_key "board_categories", "boards"
+  add_foreign_key "board_categories", "categories"
   add_foreign_key "comments", "boards"
 end

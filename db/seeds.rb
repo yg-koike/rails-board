@@ -13,3 +13,15 @@
     body: "今日#{title}を手に入れました"
   )
 end
+
+Category.create([
+  { name: "日常" },
+  { name: "勉強" },
+  { name: "グルメ" },
+  { name: "アニメ" },
+  { name: "映画" },
+  { name: "プログラミング" },
+  { name: "政治" },
+  { name: "株式" },
+  { name: "読書" },
+])

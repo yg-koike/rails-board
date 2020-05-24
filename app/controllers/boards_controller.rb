@@ -2,7 +2,8 @@ class BoardsController < ApplicationController
   before_action :set_target_board, only: %i[show edit update destroy]
 
   def index
-    @boards = Board.page(params[:page])
+    @boards = params[:category_id].present? ? Category.find(params[:category_id]).boards : Board.all
+    @boards = @boards.page(params[:page])
   end
 
   def new
@@ -15,15 +16,14 @@ class BoardsController < ApplicationController
       flash[:notice] = "「#{@board.title}」の掲示板を作成しました"
       redirect_to @board
     else  
-      redirect_back fallback_location: new_board_path, flash: {
-        board: @board, 
-        error_messages: @board.errors.full_messages
-      }
+      flash[:board] = @board 
+      flash[:error_messages] = comment.errors.full_messages
+      redirect_back fallback_location: new_board_path 
     end
   end
 
   def show
-    @comment = @board.comments.new 
+    @comment = Comment.new(board_id: @board.id) 
   end
 
   def edit
@@ -33,18 +33,22 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       flash[:notice] = "「#{@board.title}」の掲示板を編集しました"
       redirect_to @board 
+    else
+      flash[:error_messages] = @board.errors.full_messages
+      redirect_back fallback_location: edit_board_path
     end
   end
 
   def destroy 
-    @board.delete
-    redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板が削除されました" }
+    @board.destroy
+    flash[:notice] = "「#{@board.title}」の掲示板が削除されました"
+    redirect_to boards_path
   end
 
   private
 
     def board_params
-      params.require(:board).permit(:name, :title, :body)
+      params.require(:board).permit(:name, :title, :body, category_ids: [])
     end
 
     def set_target_board

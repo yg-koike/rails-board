@@ -1,12 +1,4 @@
-<% if flash[:error_messages] %>
-  <div class="alert alert-danger">
-    <ul>
-      <% flash[:error_messages].each do |msg| %>
-        <li><%= msg %>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'layouts/error_messages' %>
 
 <%= form_with model: board do |f| %>
   <div class="form-group">
@@ -20,6 +12,17 @@
   <div class="form-group">
     <%= f.label :body, '本文' %>
     <%= f.text_area :body, class: 'form-control', rows: 5 %>
+  </div>
+  <div class="form-group">
+    <span>カテゴリー</span>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |cate| %>
+      <div class="form-check">
+        <%= cate.label class: 'form-check-label' do %>
+          <%= cate.check_box class: 'form-check-input' %>
+          <%= cate.text %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
   <%= f.submit "保存", class: "btn btn-primary" %>
 <% end %>
