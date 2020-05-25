@@ -9,7 +9,9 @@
   <% end %>
   <div class="ml-auto boards__linkBox">
     <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary" %>
-    <%= link_to "編集", edit_user_path, class: "btn btn-outline-success" %>
+    <% if current_user?(@user) %>
+      <%= link_to "編集", edit_user_path, class: "btn btn-outline-success" %>
+    <% end %>
   </div>
 </div>
 

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[show edit update]
   before_action :set_target_user, only: %i[edit update show]
+  before_action :current_user_page, only: %i[edit update]
 
   def new
     @user = User.new(flash[:user])
