@@ -15,9 +15,7 @@
   color: black;
 }
 
-.board__showBox {
-  margin-bottom: 30px;
-}
+
 
 .boards__searchForm {
   display: inline-block;
@@ -28,5 +26,9 @@
   width: auto;
 }
 
+.check__cate {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 

@@ -3,16 +3,13 @@
   <div class="ml-auto boards__linkBox">
     <%= link_to "一覧", boards_path, class: "btn btn-outline-primary" %>
     <%= link_to "編集", edit_board_path, class: "btn btn-outline-success" %>
-      <%= link_to "削除", @board, class: "btn btn-outline-danger", method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
+    <%= link_to "削除", @board, class: "btn btn-outline-danger", method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
   </div>
 </div>
 
-<% if flash[:notice] %>
-  <div class="alert alert-primary">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-<div class="card board__showBox">
+<%= render 'layouts/notice_message' %>
+
+<div class="card">
   <div class="card-header">
     <h4><%= @board.title %></h4>
     <% @board.categories.each do |cate| %>
@@ -25,10 +22,12 @@
   </div>
 </div>
 
-<%= render partial: 'comments/form', locals: { comment: @comment } %>
+
 
 <div class="p-comment__list">
   <div class="p-comment__listTitle">
     <%= render @board.comments %>
   </div>
 </div>
+
+<%= render partial: 'comments/form', locals: { comment: @comment } %>
