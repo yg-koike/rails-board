@@ -41,6 +41,8 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'carrierwave'
+gem 'rmagick'
 
 
 group :development, :test do

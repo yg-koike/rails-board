@@ -15,7 +15,7 @@
 
 <div class="card">
   <div class="card-header">
-    <h4><%= @board.title %></h4>
+    <h4><%= image_tag @board.user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %><%= @board.title %></h4>
     <% @board.categories.each do |cate| %>
       <span class="badge badge-primary"><%= cate.name %></span>
     <% end %>

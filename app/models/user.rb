@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
+#  image           :string(255)
 #  name            :string(255)      not null
 #  password_digest :string(255)      not null
 #  user_name       :string(255)
@@ -16,6 +17,7 @@
 class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_secure_password
+  mount_uploader :image, ImageUploader
 
   validates :name,
     presence: true,

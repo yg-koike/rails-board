@@ -2,14 +2,16 @@
   <tbody>
     <% boards.each do |board| %>
       <tr>
-        <th>></th>
+        <th>
+          <%= image_tag board.user.image.thumb1.url, class: 'trim-image-to-circle' %>
+        </th>
         <td><%= link_to board.title, board, class: "board__listTitle" %>
         <br><% board.categories.each do |cate| %>
               <span class="badge badge-primary"><%= cate.name %></span>
             <% end %>
         </td>
         <td><%= link_to board.name, board.user, class: "board__listTitle" %></td>
-        <td><%= board.created_at.to_s(:datetime_jp) %>作成</td>
+        <td><%= board.created_at.to_s(:datetime_jp) %></td>
         <td><%= link_to '詳細', board, class: "btn btn-outline-success" %></td>
       </tr>
     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_163847) do
+ActiveRecord::Schema.define(version: 2020_05_25_193750) do
 
   create_table "board_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "board_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_05_25_163847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_name"
+    t.string "image"
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
