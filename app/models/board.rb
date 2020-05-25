@@ -8,8 +8,18 @@
 #  title      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :bigint
+#
+# Indexes
+#
+#  index_boards_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
 #
 class Board < ApplicationRecord
+  belongs_to :user
   has_many :comments, dependent: :delete_all
   has_many :board_categories, dependent: :delete_all
   has_many :categories, through: :board_categories

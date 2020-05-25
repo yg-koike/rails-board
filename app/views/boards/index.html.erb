@@ -17,18 +17,6 @@
 </div>
 <%= paginate @boards %>
 <%= render 'layouts/notice_message' %>
-<table class="table table-hover boards__table">
-  <tbody>
-    <% @boards.each do |board| %>
-      <tr>
-        <th>></th>
-        <td><%= link_to board.title, board, class: "board__listTitle" %></td>
-        <td><%= board.name %></td>
-        <td><%= board.updated_at.to_s(:datetime_jp) %>更新</td>
-        <td><%= link_to '詳細', board, class: "btn btn-outline-success" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: 'layouts/boards_list', locals: { boards: @boards } %>
 
 <%= paginate @boards %>

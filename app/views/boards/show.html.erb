@@ -4,8 +4,10 @@
   <h1>掲示板詳細</h1>
   <div class="ml-auto boards__linkBox">
     <%= link_to "一覧", boards_path, class: "btn btn-outline-primary" %>
-    <%= link_to "編集", edit_board_path, class: "btn btn-outline-success" %>
-    <%= link_to "削除", @board, class: "btn btn-outline-danger", method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
+    <% if @board.user_id == @current_user.id %>
+      <%= link_to "編集", edit_board_path, class: "btn btn-outline-success" %>
+      <%= link_to "削除", @board, class: "btn btn-outline-danger", method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
+    <% end %>
   </div>
 </div>
 

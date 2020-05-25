@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_022020) do
+ActiveRecord::Schema.define(version: 2020_05_25_163847) do
 
   create_table "board_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "board_id"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_05_24_022020) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -49,10 +51,12 @@ ActiveRecord::Schema.define(version: 2020_05_24_022020) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_name"
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
   add_foreign_key "board_categories", "boards"
   add_foreign_key "board_categories", "categories"
+  add_foreign_key "boards", "users"
   add_foreign_key "comments", "boards"
 end

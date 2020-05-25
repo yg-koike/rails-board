@@ -1,13 +1,19 @@
 class BoardsController < ApplicationController
   before_action :set_target_board, only: %i[show edit update destroy]
+  before_action :logged_in_user
+  before_action :ensure_correct_user, only: %i[edit update destroy]
 
   def index
-    @boards = params[:category_id].present? ? Category.find(params[:category_id]).boards : Board.all
+    @boards = params[:category_id].present? ? Category.find(params[:category_id]).boards.order('id DESC') : Board.order('id DESC')
     @boards = @boards.page(params[:page])
   end
 
   def new
-    @board = Board.new(flash[:board])
+    if flash[:board]
+      @board = Board.new(flash[:board])
+    else  
+      @board = Board.new(user_id: @current_user.id)
+    end
   end
 
   def create
@@ -48,10 +54,18 @@ class BoardsController < ApplicationController
   private
 
     def board_params
-      params.require(:board).permit(:name, :title, :body, category_ids: [])
+      params.require(:board).permit(:user_id, :name, :title, :body, category_ids: [])
     end
 
     def set_target_board
       @board = Board.find(params[:id])
+    end
+
+    def ensure_correct_user
+      @board = Board.find_by(id: params[:id])
+      if @board.user_id != @current_user.id
+        flash[:notice] = "権限がありません"
+        redirect_to @board
+      end 
     end
 end
