@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :boards
   resources :comments, only: %i[create destroy]
+  resources :categories, only: %i[index new create destroy]
 end

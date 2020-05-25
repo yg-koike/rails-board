@@ -10,4 +10,8 @@
 class Category < ApplicationRecord
   has_many :board_categories, dependent: :delete_all
   has_many :boards, through: :board_categories
+
+  validates :name, presence: true,
+    uniqueness: true,
+    length: { maximum: 10 }
 end

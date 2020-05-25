@@ -1,0 +1,11 @@
+<h1>新規カテゴリー作成</h1>
+
+<%= render 'layouts/error_messages' %>
+
+<%= form_with model: @category do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'カテゴリー名' %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <%= f.submit '作成', class: 'btn btn-primary' %>
+<% end %>

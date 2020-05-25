@@ -17,7 +17,7 @@ class BoardsController < ApplicationController
       redirect_to @board
     else  
       flash[:board] = @board 
-      flash[:error_messages] = comment.errors.full_messages
+      flash[:error_messages] = @board.errors.full_messages
       redirect_back fallback_location: new_board_path 
     end
   end
