@@ -1,2 +1,23 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% provide(:title, '掲示板') %>
+
+<div class="d-flex align-items-center">
+  <h1>ホーム</h1>
+  <div class="ml-auto boards__linkBox">
+    <% if @current_user %>
+      <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary" %>
+      <%= link_to "新規作成", new_board_path, class: "btn btn-outline-primary" %>
+    <% else %>
+      <%= link_to "新規登録", new_user_path, class: "btn btn-outline-primary" %>
+      <%= link_to "ログイン", login_path, class: "btn btn-outline-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<h4>新着掲示板</h4>
+<%= render partial: 'layouts/boards_list', locals: { boards: @boards } %>
+<%= link_to 'もっと見る', boards_path %>
+
+<h4 class="home__popularityTitle">人気の投稿</h4>
+<%= render partial: 'layouts/boards_list', locals: { boards: @boards } %>
+
+

@@ -1,0 +1,10 @@
+<% provide(:title, 'ユーザー編集') %>
+
+<div class="d-flex align-items-center mt-4 mb-4">
+  <h1>ユーザー編集</h1>
+  <div class="ml-auto boards__linkBox">
+    <%= link_to 'マイページ', @user, class: 'btn btn-outline-primary' %>
+  </div>
+</div>
+
+<%= render partial: 'form', locals: { user: @user } %>

@@ -5,6 +5,7 @@ ja:
         name: ユーザー名
         password: パスワード
         password_confirmation: パスワード(確認)
+        user_name: 名前
       board:
         name: 名前
         title: タイトル

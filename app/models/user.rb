@@ -5,6 +5,7 @@
 #  id              :bigint           not null, primary key
 #  name            :string(255)      not null
 #  password_digest :string(255)      not null
+#  user_name       :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -13,6 +14,7 @@
 #  index_users_on_name  (name) UNIQUE
 #
 class User < ApplicationRecord
+  has_many :boards, dependent: :destroy
   has_secure_password
 
   validates :name,
@@ -25,5 +27,7 @@ class User < ApplicationRecord
     }
   validates :password,
     length: { minimum: 8, maximum: 16 }
+
+  validates :user_name, presence: true, length: { maximum: 10 }
   
 end

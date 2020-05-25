@@ -1,3 +1,5 @@
+<% provide(:title, 'ログイン') %>
+
 <h1>ログイン</h1>
 <% if flash[:danger] %>
   <div class="alert alert-danger">
@@ -15,3 +17,5 @@
   </div>
   <%= f.submit 'ログイン', class: 'btn btn-primary' %>
 <% end %>
+
+<p class="new__userLink"><%= link_to 'ユーザー登録がまだの方はこちら', new_user_path %></p>
