@@ -3,7 +3,7 @@
 
 <div class="d-flex align-items-center mt-4 mb-4">
   <% if current_user?(@user) %>
-    <h1>マイページ</h1>
+    <h1><%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>マイページ</h1>
   <% else %>
     <h1><%= @user.user_name %>のページ</h1>
   <% end %>
