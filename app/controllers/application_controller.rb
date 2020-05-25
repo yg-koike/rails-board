@@ -10,9 +10,5 @@ class ApplicationController < ActionController::Base
       end 
     end
 
-    def current_user_page
-      unless @user == @current_user
-        redirect_to @user
-      end
-    end
+    
 end

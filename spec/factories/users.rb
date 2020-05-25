@@ -18,5 +18,6 @@ FactoryBot.define do
     name { 'hoge' }
     password { 'password' }
     password_confirmation { "password" }
+    user_name { "サンプルネーム" }
   end
 end

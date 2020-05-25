@@ -45,4 +45,11 @@ class UsersController < ApplicationController
     def set_target_user
       @user = User.find(params[:id])
     end
+
+    def current_user_page
+      unless @user == @current_user
+        flash[:notice] = "権限がありません"
+        redirect_to @user
+      end
+    end
 end
