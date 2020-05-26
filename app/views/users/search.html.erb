@@ -1,0 +1,35 @@
+<% provide(:title, @users.empty? ? "検索結果が見つかりませんでした" : "\"#{params[:user_name]}\"の検索結果") %>
+
+<div class="d-flex align-items-center">
+  <h1>ユーザー検索</h1>
+  <div class="ml-auto boards__linkBox">    
+    <% if @current_user %>
+      <%= link_to "掲示板作成", new_board_path, class: "btn btn-outline-primary" %>
+      <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary" %>
+    <% else %>
+      <%= link_to "新規登録", new_user_path, class: "btn btn-outline-primary" %>
+      <%= link_to "ログイン", login_path, class: "btn btn-outline-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<% if @users.empty? %>
+  <p>検索結果が見つかりませんでした</p>
+<% else %>
+  <p>"<%= params[:user_name] %>"の検索結果</p>
+<% end %>
+
+<table class="table table-hover boards__table">
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th>
+          <%= image_tag user.image.thumb1.url, class: 'trim-image-to-circle' %>
+        </th>
+        <td><%= link_to user.user_name, user, class: "board__listTitle" %></td>
+        <td><%= user.created_at.to_s(:datetime_jp) %>~</td>
+        <td><%= link_to '詳細', user, class: "btn btn-outline-success" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

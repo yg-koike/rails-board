@@ -3,6 +3,17 @@ class UsersController < ApplicationController
   before_action :set_target_user, only: %i[edit update show]
   before_action :current_user_page, only: %i[edit update]
 
+  def index
+  end
+
+  def search 
+    if params[:user_name].present?
+      @users = User.where('user_name LIKE ?', "%#{params[:user_name]}%")
+    else
+      @users = User.none
+    end
+  end
+
   def new
     @user = User.new(flash[:user])
   end

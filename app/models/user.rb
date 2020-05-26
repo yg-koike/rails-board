@@ -31,5 +31,5 @@ class User < ApplicationRecord
     length: { minimum: 8, maximum: 16 }
 
   validates :user_name, presence: true, length: { maximum: 10 }
-  
+ 
 end

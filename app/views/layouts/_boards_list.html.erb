@@ -11,7 +11,7 @@
             <% end %>
         </td>
         <td><%= link_to board.name, board.user, class: "board__listTitle" %></td>
-        <td><%= board.created_at.to_s(:datetime_jp) %></td>
+        <td><%= board.created_at.to_s(:datetime_jp) %>~</td>
         <td><%= link_to '詳細', board, class: "btn btn-outline-success" %></td>
       </tr>
     <% end %>
