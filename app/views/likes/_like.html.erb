@@ -1,0 +1,15 @@
+<% if @current_user %>
+<div id="like-link-<%= board.id %>">
+  <% if @current_user.likes.find_by(board_id: board.id) %>
+    <%= link_to unlike_path(board.id), method: :delete, remote: true, class: "btn btn-danger" do %>
+      いいね!<span class="badge badge-light"><%= board.likes.count %></span>
+    <% end %>
+  <% else %>
+    <%= link_to like_path(board.id), method: :post, remote: true, class: "btn btn-outline-danger" do %>
+      いいね!<span class="badge badge-light"><%= board.likes.count %></span>
+    <% end %>
+  <% end %>
+</div>
+<% else %>
+  いいね<%= board.likes.count %>
+<% end %>

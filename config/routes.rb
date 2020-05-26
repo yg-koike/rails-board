@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  post '/like/:board_id', to: 'likes#like', as: 'like'
+  delete '/like/:board_id', to: 'likes#unlike', as: 'unlike'
+
   root 'home#index'
   resources :users do 
     get :search, on: :collection

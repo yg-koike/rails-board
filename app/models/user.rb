@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_secure_password
   mount_uploader :image, ImageUploader
+  has_many :likes, dependent: :destroy 
+  has_many :like_boards, through: :likes, source: :story
 
   validates :name,
     presence: true,

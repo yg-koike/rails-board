@@ -8,8 +8,7 @@
 #  board_id   :integer
 #  user_id    :integer
 #
-require 'rails_helper'
-
-RSpec.describe Like, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+class Like < ApplicationRecord
+  belongs_to :board, counter_cache: :likes_count
+  belongs_to :user
 end

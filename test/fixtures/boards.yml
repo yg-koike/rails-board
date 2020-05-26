@@ -2,13 +2,14 @@
 #
 # Table name: boards
 #
-#  id         :bigint           not null, primary key
-#  body       :text(65535)
-#  name       :string(255)
-#  title      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint
+#  id          :bigint           not null, primary key
+#  body        :text(65535)
+#  likes_count :integer
+#  name        :string(255)
+#  title       :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :bigint
 #
 # Indexes
 #
