@@ -3,7 +3,7 @@
     <% boards.each do |board| %>
       <tr>
         <th>
-          <%= image_tag board.user.image.thumb1.url, class: 'trim-image-to-circle' %>
+          <%= link_to image_tag(board.user.image.thumb1.url, class: 'trim-image-to-circle'), board.user %>
         </th>
         <td><%= link_to board.title, board, class: "board__listTitle" %>
         <br><% board.categories.each do |cate| %>

@@ -14,7 +14,7 @@
 </div>
 
 <% if @users.empty? %>
-  <p>検索結果が見つかりませんでした</p>
+  <p>"<%= params[:user_name] %>"の検索結果が見つかりませんでした</p>
 <% else %>
   <p>"<%= params[:user_name] %>"の検索結果</p>
 <% end %>
@@ -24,7 +24,7 @@
     <% @users.each do |user| %>
       <tr>
         <th>
-          <%= image_tag user.image.thumb1.url, class: 'trim-image-to-circle' %>
+          <%= link_to image_tag(user.image.thumb1.url, class: 'trim-image-to-circle'), user %>
         </th>
         <td><%= link_to user.user_name, user, class: "board__listTitle" %></td>
         <td><%= user.created_at.to_s(:datetime_jp) %>~</td>
