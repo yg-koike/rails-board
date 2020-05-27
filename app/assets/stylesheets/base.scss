@@ -1,0 +1,49 @@
+
+
+h1 {
+  margin: 30px 0;
+  font-family: "Sawarabi Mincho", sans-serif;
+}
+
+.top__items {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+body {
+  font-family: sans-serif;
+}
+
+@media (max-width: 768px) 
+{
+  .tab__invisible {
+    display: none;
+  }
+
+  .tab__size {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 479px)
+{
+  h1 {
+    font-size: 18px;
+  }
+  .phone__invisible {
+    display: none;
+  }
+}
+
+@media (min-width: 768px)
+{
+  .tab__visible {
+    display: none
+  }
+}
+

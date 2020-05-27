@@ -1,7 +1,7 @@
 <% provide(:title, current_user?(@user) ? "マイページ" : "#{@user.user_name}のページ") %>
 
 
-<div class="d-flex align-items-center mt-4 mb-4">
+<div>
   <% if current_user?(@user) %>
     <h1>
       <%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>
@@ -13,8 +13,8 @@
       <%= @user.user_name %>のページ
     </h1>
   <% end %>
-  <div class="ml-auto boards__linkBox">
-    <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary" %>
+  <div class="ml-auto boards__linkBox top__items">
+    <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary phone__invisible" %>
     <% if current_user?(@user) %>
       <%= link_to "掲示板作成", new_board_path, class: "btn btn-outline-primary" %>
       <%= link_to "編集", edit_user_path, class: "btn btn-outline-success" %>

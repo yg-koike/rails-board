@@ -1,6 +1,6 @@
 <% provide(:title, '掲示板一覧') %>
 
-<div class="d-flex align-items-center">
+<div class="top__items">
   <h1>掲示板一覧</h1>
   <div class="ml-auto boards__linkBox">
     <%= form_with url: boards_path, method: :get, class: 'boards__searchForm' do %>
@@ -12,7 +12,7 @@
                        onchange: 'submit(this.form);'
                      } %>
     <% end %>
-    <%= link_to "新規作成", new_board_path, class: "btn btn-outline-primary" %>
+    <%= link_to "新規作成", new_board_path, class: "btn btn-outline-primary board__indexNew" %>
   </div>
 </div>
 <%= paginate @boards %>
