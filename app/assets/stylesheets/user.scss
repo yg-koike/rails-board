@@ -9,3 +9,21 @@
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
 }
+
+.image__input{
+  
+  width: 220px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  padding-top: 2px;
+
+  text-decoration: none;
+  text-align: center;
+}
+
+.image__form{
+  display: none;
+}
+

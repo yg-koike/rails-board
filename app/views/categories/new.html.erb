@@ -7,6 +7,7 @@
 <%= form_with model: @category do |f| %>
   <div class="form-group">
     <%= f.label :name, 'カテゴリー名' %>
+    <%= render 'layouts/must_badge' %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <%= f.submit '作成', class: 'btn btn-primary' %>

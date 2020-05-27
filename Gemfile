@@ -43,6 +43,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'font-awesome-sass', '~> 5.4.1'
 
 
 group :development, :test do

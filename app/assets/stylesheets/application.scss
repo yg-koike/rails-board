@@ -12,6 +12,9 @@
  *
  */
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 @import "base";
 @import "boards";
 @import "comments";
@@ -19,3 +22,4 @@
 @import "header";
 @import "user";
 @import "home";
+@import "likes";

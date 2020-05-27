@@ -3,9 +3,15 @@
 
 <div class="d-flex align-items-center mt-4 mb-4">
   <% if current_user?(@user) %>
-    <h1><%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>マイページ</h1>
+    <h1>
+      <%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>
+      マイページ
+    </h1>
   <% else %>
-    <h1><%= @user.user_name %>のページ</h1>
+    <h1>
+      <%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>
+      <%= @user.user_name %>のページ
+    </h1>
   <% end %>
   <div class="ml-auto boards__linkBox">
     <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary" %>

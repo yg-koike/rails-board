@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :set_variables
+  before_action :logged_in_user
 
   def like 
     like = @current_user.likes.new(board_id: @board.id)

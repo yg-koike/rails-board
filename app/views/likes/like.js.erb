@@ -1,1 +1,1 @@
-$("<%= @id_name %>").html('<%= escape_javascript(render("likes/like", board: @board  )) %>');
+$("<%= @id_name %>").html('<%= j(render("likes/like", board: @board  )) %>');

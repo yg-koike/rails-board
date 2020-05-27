@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg__header">
-  <a class="navbar-brand" href="<%= root_path %>">掲示板</a>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <h4 class="header__title"><%= icon "fas", "chalkboard" %> 掲示板</h4>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,7 +16,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ユーザー
+         ユーザー
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
           <% if @current_user %>
@@ -39,8 +41,8 @@
       <% end %>
     </ul>
     <%= form_with url: search_users_path, method: :get, local: true, class: 'form-inline my-2 my-lg-0' do |f| %>
-      <%= f.text_field :user_name, class: 'form-control mr-sm-2', placeholder: 'ユーザー検索' %>
-      <%= f.submit '検索', class: 'btn btn-primary my-2 my-sm-0' %>
+      <%= f.text_field :user_name, class: 'form-control mr-sm-2', placeholder: "ユーザー検索" %>
+      <%= f.submit "\uf002 検索", class: 'btn btn-primary my-2 my-sm-0 fas search__submit' %>
     <% end %>
   </div>
 </nav>

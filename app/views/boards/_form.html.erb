@@ -4,14 +4,17 @@
   <%= f.hidden_field :user_id %>
   <div class="form-group">
     <%= f.label :name, '名前' %>
+    <%= render 'layouts/must_badge' %>
     <%= f.text_field :name, class: 'form-control', value: @current_user.user_name %>
   </div>
   <div class="form-group">
     <%= f.label :title, 'タイトル' %>
+    <%= render 'layouts/must_badge' %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :body, '本文' %>
+    <%= render 'layouts/must_badge' %>
     <%= f.text_area :body, class: 'form-control', rows: 5 %>
   </div>
   <div class="form-group">
