@@ -4,7 +4,7 @@
   <h1>掲示板詳細</h1>
   <div class="ml-auto boards__linkBox">
     <%= link_to "一覧", boards_path, class: "btn btn-outline-primary" %>
-    <% if @board.user_id == @current_user.id %>
+    <% if @board.user_id == current_user.id %>
       <%= link_to "編集", edit_board_path, class: "btn btn-outline-success" %>
       <%= link_to "削除", @board, class: "btn btn-outline-danger", method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
     <% end %>
@@ -15,7 +15,7 @@
 
 <div class="card">
   <div class="card-header">
-    <h4><%= image_tag @board.user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %><%= @board.title %></h4>
+    <h4><%= link_to image_tag(@board.user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg'), @board.user %><%= @board.title %></h4>
     <% @board.categories.each do |cate| %>
       <span class="badge badge-primary"><%= cate.name %></span>
     <% end %>
@@ -25,6 +25,7 @@
     <p class="text-right font-weight-bold mr-10"><%= link_to @board.name, @board.user, class: "board__showName" %></p>
   </div>
 </div>
+<p><%= render 'likes/like', board: @board %></p>
 
 
 

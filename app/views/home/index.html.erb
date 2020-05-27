@@ -3,7 +3,7 @@
 <div class="d-flex align-items-center">
   <h1>ホーム</h1>
   <div class="ml-auto boards__linkBox">
-    <% if @current_user %>
+    <% if current_user %>
       <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary" %>
       <%= link_to "新規作成", new_board_path, class: "btn btn-outline-primary" %>
     <% else %>
