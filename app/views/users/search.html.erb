@@ -1,6 +1,6 @@
 <% provide(:title, @users.empty? ? "検索結果が見つかりませんでした" : "\"#{params[:user_name]}\"の検索結果") %>
 
-<div class="d-flex align-items-center">
+<div class="top__items">
   <h1>ユーザー検索</h1>
   <div class="ml-auto boards__linkBox">    
     <% if @current_user %>
@@ -28,9 +28,9 @@
         <th>
           <%= link_to image_tag(user.image.thumb1.url, class: 'trim-image-to-circle'), user %>
         </th>
-        <td><%= link_to user.user_name, user, class: "board__listTitle" %></td>
-        <td><%= user.created_at.to_s(:datetime_jp) %>作成</td>
-        <td><%= link_to '詳細', user, class: "btn btn-outline-success" %></td>
+        <td class="phone__size"><%= link_to user.user_name, user, class: "board__listTitle" %></td>
+        <td class="phone__size"><%= user.created_at.to_s(:datetime_jp) %>作成</td>
+        <td><%= link_to '詳細', user, class: "btn btn-outline-success phone__invisible" %></td>
       </tr>
     <% end %>
   </tbody>

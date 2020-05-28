@@ -5,16 +5,15 @@
         <th>
           <%= link_to image_tag(board.user.image.thumb1.url, class: 'trim-image-to-circle'), board.user %>
         </th>
-        <td class="tab__invisible"><%= link_to board.title, board, class: "board__listTitle" %>
-        <td class="tab__visible"><%= link_to board.title.truncate(13), board, class: "board__listTitle" %>
+        <td class="phone__size"><%= link_to board.title.truncate(20), board, class: "board__listTitle" %>
         <br><% board.categories.each do |cate| %>
-              <span class="badge badge-primary"><%= cate.name %></span>
+              <span class="badge badge-primary phone__size"><%= cate.name %></span>
             <% end %>
         </td>
-        <td><%= link_to board.name.truncate(6), board.user, class: "board__listTitle" %></td>
+        <td class="phone__size"><%= link_to board.user.user_name.truncate(6), board.user, class: "board__listTitle" %></td>
         <td class="tab__invisible"><%= board.updated_at.to_s(:datetime_jp) %>更新</td>
         <td class="tab__invisible"><%= link_to '詳細', board, class: "btn btn-outline-success" %></td>
-        <td><%= render 'likes/like', board: board %></td>
+        <td class="phone__size"><%= render 'likes/like', board: board %></td>
       </tr>
     <% end %>
   </tbody>

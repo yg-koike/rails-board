@@ -1,6 +1,6 @@
-<div class="p-comment__item">
-  <p><%= simple_format(comment.comment) %></p>
-  <div class="p-comment__bottomLine">
+<div class="comment__item card">
+  <p><%= Rinku.auto_link(simple_format(comment.comment), :all, 'target="_blank"').html_safe %></p>
+  <div class="comment__bottomLine">
     <span><%= comment.name %></span>
     <span><%= comment.created_at.to_s(:datetime_jp) %></span>
     <span><%= link_to '削除', comment, method: :delete, data: { confirm: '削除してもよろしいですか？' } %></span>

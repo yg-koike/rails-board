@@ -1,34 +1,46 @@
-.p-comment__formBox {
+.comment__formBox {
   margin: 30px auto;
   border: 3px dashed rgb(209, 209, 209);
   padding: 25px;
 }
 
-.p-comment__formTitle {
+.comment__formTitle {
   border-bottom: 2px dashed #dfdfdf;
   padding-bottom: 5px;
 }
 
-.p-comment__listTitle {
-  padding-bottom: 5px;
+
+
+.comment__list {
+  margin: 30px 0;
 }
 
-.p-comment__list {
-  margin: 38px 0;
+
+.comment__item {
   padding: 20px;
+  margin: 20px 0;
 }
 
-.p-comment__item {
-  padding: 18px;
-  border-bottom: 2px dotted #dfdfdf;
-}
-
-.p-comment__bottomLine {
+.comment__bottomLine {
   font-size: 15px;
   text-align: right;
 
   > span {
     font-size: 14px;
     margin: 0 12px;
+  }
+}
+
+.comment__count {
+  border-bottom: 2px solid #dfdfdf;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 479px)
+{
+  .comment__bottomLine {
+    > span {
+      font-size: 10px;
+    }
   }
 }

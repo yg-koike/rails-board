@@ -21,18 +21,28 @@
     <% end %>
   </div>
   <div class="card-body">
-    <p class="card-text"><%= simple_format(@board.body) %></p>
-    <p class="text-right font-weight-bold mr-10"><%= link_to @board.name, @board.user, class: "board__showName" %></p>
+    <p class="card-text"><%= Rinku.auto_link(simple_format(@board.body), :all, 'target="_blank"').html_safe %></p>
+    <p class="text-right font-weight-bold mr-10"><%= link_to @board.user.user_name, @board.user, class: "board__showName" %></p>
   </div>
 </div>
 <p><%= render 'likes/like', board: @board %></p>
 
+<h4>いいねしたユーザー</h4>
+<% if !@liking_users.empty? %>
+  <% @liking_users.each do |user| %>
+    <%= link_to image_tag(user.image.thumb1.url, class: 'trim-image-to-circle'), user %>
+  <% end %>
+  <% if @board.likes.count >= 11 %>
+    <p class="board__showMoreText">and more...</p>
+  <% end %>
+<% else %>
+  <p>いいねしたユーザーはまだいません</p>
+<% end %>
 
 
-<div class="p-comment__list">
-  <div class="p-comment__listTitle">
-    <%= render @board.comments %>
-  </div>
+<div class="comment__list">
+  <h4 class="comment__count"><%= @board.comments.length %>件のコメント</h4>
+  <%= render @board.comments %>
 </div>
 
 <%= render partial: 'comments/form', locals: { comment: @comment } %>

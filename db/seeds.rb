@@ -11,7 +11,6 @@
   title = Faker::Book.title
   name = Faker::Name.name
   Board.create(
-    name: name, 
     title: title,
     body: "今日#{title}を手に入れました",
     user_id: n

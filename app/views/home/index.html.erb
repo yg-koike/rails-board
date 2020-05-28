@@ -17,7 +17,9 @@
 
 <h4>新着掲示板</h4>
 <%= render partial: 'layouts/boards_list', locals: { boards: @boards } %>
-<%= link_to 'もっと見る', boards_path %>
+<div class="home__moreWrap">
+<%= link_to 'もっと見る', boards_path, class: "home__more" %>
+</div>
 
 <h4 class="home__popularityTitle">人気の投稿</h4>
 <%= render partial: 'layouts/boards_list', locals: { boards: @popular_boards } %>

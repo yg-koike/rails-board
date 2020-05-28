@@ -44,6 +44,7 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'rinku'
 
 
 group :development, :test do

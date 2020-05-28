@@ -9,11 +9,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 768px) {
-  h1 {
-    font-size: 30px;
-  }
-}
 
 body {
   font-family: sans-serif;
@@ -21,6 +16,9 @@ body {
 
 @media (max-width: 768px) 
 {
+  h1 {
+    font-size: 30px;
+  }
   .tab__invisible {
     display: none;
   }
@@ -38,12 +36,11 @@ body {
   .phone__invisible {
     display: none;
   }
-}
-
-@media (min-width: 768px)
-{
-  .tab__visible {
-    display: none
+  .phone__size {
+    font-size: 5px;
   }
 }
+
+
+
 

@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @boards = Board.where(user_id: @user.id)
+    @boards = Board.where(user_id: @user.id).order('updated_at DESC')
   end
 
   private

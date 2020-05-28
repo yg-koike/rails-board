@@ -29,7 +29,8 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new(board_id: @board.id) 
+    @comment = Comment.new(board_id: @board.id)
+    @liking_users = @board.liking_users.limit(10)
   end
 
   def edit
@@ -48,13 +49,13 @@ class BoardsController < ApplicationController
   def destroy 
     @board.destroy
     flash[:notice] = "「#{@board.title}」の掲示板が削除されました"
-    redirect_to boards_path
+    redirect_to current_user
   end
 
   private
 
     def board_params
-      params.require(:board).permit(:user_id, :name, :title, :body, category_ids: [])
+      params.require(:board).permit(:user_id, :title, :body, category_ids: [])
     end
 
     def set_target_board

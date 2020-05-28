@@ -2,6 +2,8 @@
   tr:hover {
     cursor: pointer;
   }
+  margin: 0 auto;
+  margin-bottom: 20px;
   border: dotted 2px lightskyblue;
 }
 
@@ -43,6 +45,15 @@
   position: relative;
   bottom: 2px;
 }
+
+.board__showMoreText {
+  margin-top: 10px;
+}
+
+
+
+
+
 
 
 

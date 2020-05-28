@@ -2,17 +2,14 @@
 
 
 <div>
-  <% if current_user?(@user) %>
-    <h1>
-      <%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>
-      マイページ
-    </h1>
-  <% else %>
-    <h1>
-      <%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>
+  <h1>
+    <%= image_tag @user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg' %>
+    <% if current_user?(@user) %>
+      <%= @user.user_name %>のマイページ
+    <% else %>
       <%= @user.user_name %>のページ
-    </h1>
-  <% end %>
+    <% end %>
+  </h1>
   <div class="ml-auto boards__linkBox top__items">
     <%= link_to "掲示板一覧", boards_path, class: "btn btn-outline-primary phone__invisible" %>
     <% if current_user?(@user) %>
@@ -24,7 +21,18 @@
 
 <%= render 'layouts/notice_message'  %>
 
-<%= render partial: 'layouts/boards_list', locals: { boards: @boards } %>
+<h4>投稿掲示板</h4>
+<% if !@boards.empty? %>
+  <%= render partial: 'layouts/boards_list', locals: { boards: @boards } %>
+<% else %>
+  <p class="user__pageEmptyMsg">投稿した掲示板はありません</p>
+<% end %>
+<h4>いいねした投稿</h4>
+<% if !@user.like_boards.empty? %>
+  <%= render partial: 'layouts/boards_list', locals: { boards: @user.like_boards } %>
+<% else %>
+  <p class="user__pageEmptyMsg">いいねした投稿はありません</p>
+<% end %>
 
 
 
