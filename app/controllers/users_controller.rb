@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   before_action :set_target_user, only: %i[edit update show]
   before_action :current_user_page, only: %i[edit update]
 
-  def index
-  end
 
   def search 
     if params[:user_name].present?
@@ -54,7 +52,7 @@ class UsersController < ApplicationController
     end
 
     def set_target_user
-      @user = User.find(params[:id])
+      @user = User.find_by(name: params[:id])
     end
 
     def current_user_page
@@ -63,4 +61,5 @@ class UsersController < ApplicationController
         redirect_to @user
       end
     end
+    
 end

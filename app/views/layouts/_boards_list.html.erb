@@ -7,7 +7,7 @@
         </th>
         <td class="phone__size"><%= link_to board.title.truncate(20), board, class: "board__listTitle" %>
         <br><% board.categories.each do |cate| %>
-              <span class="badge badge-primary phone__size"><%= cate.name %></span>
+              <span><%= link_to cate.name, boards_path(category_id: cate.id), class: "badge badge-primary phone__size" %></span>
             <% end %>
         </td>
         <td class="phone__size"><%= link_to board.user.user_name.truncate(6), board.user, class: "board__listTitle" %></td>

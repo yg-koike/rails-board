@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   delete '/like/:board_id', to: 'likes#unlike', as: 'unlike'
 
   root 'home#index'
-  resources :users do 
+  resources :users, only: %i[new create edit update show] do
     get :search, on: :collection
   end
   resources :boards
   resources :comments, only: %i[create destroy]
-  resources :categories, only: %i[index new create destroy]
+  resources :categories, only: %i[index create destroy]
 end

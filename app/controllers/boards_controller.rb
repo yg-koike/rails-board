@@ -9,6 +9,7 @@ class BoardsController < ApplicationController
   end
 
   def new
+    @category = Category.new
     if flash[:board]
       @board = Board.new(flash[:board])
     else  
@@ -34,6 +35,7 @@ class BoardsController < ApplicationController
   end
 
   def edit
+    @category = Category.new
   end
 
   def update 
@@ -61,6 +63,7 @@ class BoardsController < ApplicationController
     def set_target_board
       @board = Board.find(params[:id])
     end
+
 
     def ensure_correct_user
       @board = Board.find_by(id: params[:id])

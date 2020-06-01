@@ -17,7 +17,7 @@
   <div class="card-header">
     <h4><%= link_to image_tag(@board.user.image.thumb1.url, class: 'trim-image-to-circle show__boardTitleImg'), @board.user %><%= @board.title %></h4>
     <% @board.categories.each do |cate| %>
-      <span class="badge badge-primary"><%= cate.name %></span>
+      <span><%= link_to cate.name, boards_path(category_id: cate.id), class: "badge badge-primary" %></span>
     <% end %>
   </div>
   <div class="card-body">
@@ -45,4 +45,18 @@
   <%= render @board.comments %>
 </div>
 
-<%= render partial: 'comments/form', locals: { comment: @comment } %>
+
+
+<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#commentModal">
+  コメントする
+</button>
+
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render partial: "comments/form", locals: { comment: @comment } %>
+      </div>
+    </div>
+  </div>
+</div>

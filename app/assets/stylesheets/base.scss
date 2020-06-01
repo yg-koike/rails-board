@@ -12,7 +12,10 @@ h1 {
 
 body {
   font-family: sans-serif;
+  background-color: rgb(250, 250, 250);
 }
+
+
 
 @media (max-width: 768px) 
 {
@@ -26,6 +29,7 @@ body {
   .tab__size {
     font-size: 30px;
   }
+
 }
 
 @media (max-width: 479px)
@@ -37,7 +41,13 @@ body {
     display: none;
   }
   .phone__size {
-    font-size: 5px;
+    font-size: 10px;
+  }
+  .pagination {
+    font-size: 15px;
+    a {
+      padding: 5px;
+    }
   }
 }
 

@@ -1,14 +1,16 @@
 <%= render 'layouts/error_messages.html.erb' %>
 
-<div class="comment__formBox">
   <p class="comment__formTitle">
     <%= icon "fas", "comments" %>
     コメント記入
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </p>
-  <%= form_for comment do |f| %>
+  <%= form_with model: comment do |f| %>
     <%= f.hidden_field :board_id %>
     <div class="form-group">
-      <%= f.label :name, '名前' %>
+      <%= f.label :name, '名前(変更可)' %>
       <%= render 'layouts/must_badge' %>
       <%= f.text_field :name, class: 'form-control', value: current_user.user_name %>
     </div>
@@ -19,4 +21,3 @@
     </div>
     <%= f.submit '送信', class: 'btn btn-primary' %>
   <% end %>
-</div>

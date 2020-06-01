@@ -3,8 +3,10 @@
 <div class="top__items">
   <h1>掲示板編集</h1>
   <div class="ml-auto boards__linkBox" %>
-    <%= link_to "カテゴリー作成", new_category_path, class: "btn btn-outline-primary" %>
-    <%= link_to "一覧", boards_path, class: "btn btn-outline-primary" %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#categoryModal">
+      カテゴリー作成
+    </button>
+    <%= link_to "詳細", @board, class: "btn btn-outline-success" %>
   </div>
 </div>
 <%= render partial: 'form', locals: { board: @board } %>

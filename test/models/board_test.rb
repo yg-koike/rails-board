@@ -3,9 +3,9 @@
 # Table name: boards
 #
 #  id          :bigint           not null, primary key
-#  body        :text(65535)
+#  body        :text(65535)      not null
 #  likes_count :integer
-#  title       :string(255)
+#  title       :string(255)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint

@@ -6,7 +6,7 @@
 #  image           :string(255)
 #  name            :string(255)      not null
 #  password_digest :string(255)      not null
-#  user_name       :string(255)
+#  user_name       :string(255)      not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -33,5 +33,8 @@ class User < ApplicationRecord
     length: { minimum: 8, maximum: 16 }
 
   validates :user_name, presence: true, length: { maximum: 10 }
- 
+
+  def to_param
+    name 
+  end
 end
