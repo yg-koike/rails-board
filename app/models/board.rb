@@ -26,6 +26,6 @@ class Board < ApplicationRecord
   has_many :likes, dependent: :destroy 
   has_many :liking_users, through: :likes, source: :user
 
-  validates :title, presence: true, length: { maximum: 30 }
+  validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 500 }
 end

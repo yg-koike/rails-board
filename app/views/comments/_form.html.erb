@@ -7,17 +7,18 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </p>
-  <%= form_with model: comment do |f| %>
+  <%= form_with model: comment, local: true do |f| %>
     <%= f.hidden_field :board_id %>
     <div class="form-group">
-      <%= f.label :name, '名前(変更可)' %>
+      <%= f.label :name, '名前(変更可,10字以内)' %>
       <%= render 'layouts/must_badge' %>
       <%= f.text_field :name, class: 'form-control', value: current_user.user_name %>
     </div>
     <div class="form-group">
-      <%= f.label :comment, 'コメント' %>
+      <%= f.label :comment, 'コメント(400字以内)' %>
       <%= render 'layouts/must_badge' %>
-      <%= f.text_area :comment, class: 'form-control', rows: 4 %>
+      <%= f.text_area :comment, class: 'form-control', id: 'input-comment', rows: 4 %>
+      <p  class="form__counter" id="comment-counter">0文字</p>
     </div>
     <%= f.submit '送信', class: 'btn btn-primary' %>
   <% end %>

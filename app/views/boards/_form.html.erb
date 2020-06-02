@@ -1,16 +1,18 @@
 <%= render 'layouts/error_messages' %>
 
-<%= form_with model: board do |f| %>
+<%= form_with model: board, local: true do |f| %>
   <%= f.hidden_field :user_id %>
   <div class="form-group">
-    <%= f.label :title, 'タイトル' %>
+    <%= f.label :title, 'タイトル(50字以内)' %>
     <%= render 'layouts/must_badge' %>
-    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.text_field :title, class: 'form-control', id: 'input-content1' %>
+    <p class="form__counter" id="form-counter1"></p>
   </div>
   <div class="form-group">
-    <%= f.label :body, '本文' %>
+    <%= f.label :body, '本文(500字以内)' %>
     <%= render 'layouts/must_badge' %>
-    <%= f.text_area :body, class: 'form-control', rows: 5 %>
+    <%= f.text_area :body, class: 'form-control', id: 'input-content2', rows: 5 %>
+    <p class="form__counter" id="form-counter2">
   </div>
   <div class="form-group">
     <span>カテゴリー</span>
