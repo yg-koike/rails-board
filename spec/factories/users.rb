@@ -20,5 +20,9 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { "password" }
     user_name { "サンプルネーム" }
+
+    trait :invalid do 
+      name { nil }
+    end
   end
 end

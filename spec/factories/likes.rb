@@ -10,6 +10,7 @@
 #
 FactoryBot.define do
   factory :like do
-    
+    user 
+    board
   end
 end
