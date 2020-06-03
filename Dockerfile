@@ -7,6 +7,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -
 RUN mkdir /webapp
 WORKDIR /webapp
 
+
 ADD Gemfile /webapp/Gemfile
 ADD Gemfile.lock /webapp/Gemfile.lock
 
