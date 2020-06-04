@@ -5,7 +5,7 @@
         <th>
           <%= link_to image_tag(board.user.image.thumb1.url, class: 'trim-image-to-circle'), board.user %>
         </th>
-        <td class="phone__size"><%= link_to board.title.truncate(30), board, class: "board__listTitle" %>
+        <td class="phone__size"><%= link_to board.title.truncate(25), board, class: "board__listTitle" %>
         <br><% board.categories.each do |cate| %>
               <span><%= link_to cate.name, boards_path(category_id: cate.id), class: "badge badge-primary phone__size" %></span>
             <% end %>
