@@ -10,5 +10,11 @@ class ApplicationController < ActionController::Base
       end 
     end
 
+    def log_out_user
+      if logged_in? 
+        redirect_to boards_path
+      end
+    end
+
     
 end

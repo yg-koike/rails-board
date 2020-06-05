@@ -16,9 +16,11 @@
       <li class="nav-item">
         <%= header_link_item('掲示板一覧', boards_path) %>
       </li>
-      <li class="nav-item">
-        <%= header_link_item("カテゴリー一覧", categories_path) %>
-      </li>
+      <% if current_user %>
+        <li class="nav-item">
+          <%= header_link_item("カテゴリー一覧", categories_path) %>
+        </li>
+      <% end %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          ユーザー
