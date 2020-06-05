@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '>= 4.3.1'
 gem 'jquery-rails'
 gem 'faker'
-gem 'kaminari'
+gem 'kaminari', '>= 1.2.1'
 gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
